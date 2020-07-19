@@ -11,4 +11,4 @@ The project consists of 2 parts: IOT and web app connected through MQTT protocol
 ## [Kargoluk App](https://github.com/mustafahakkoz/Kargoluk_IOT_prototypes/tree/master/Kargoluk%20App)  
 **2. Meteor.js Web Application:** An application with simple GUI to generate passwords for deliveryman and customer.
 
-<img src="https://github.com/mustafahakkoz/Kargoluk_IOT_prototypes/blob/master/Kargoluk%20App/imgs/IMG_20200720_005414_226.jpg" height="324">
+<img src="https://github.com/mustafahakkoz/Kargoluk_IOT_prototypes/blob/master/Kargoluk%20App/imgs/IMG_20200720_005414_226.jpg" height="480">
