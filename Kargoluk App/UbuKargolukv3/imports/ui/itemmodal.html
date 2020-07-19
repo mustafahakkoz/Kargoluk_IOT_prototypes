@@ -1,0 +1,49 @@
+<!--CUZ OF SEMANTIC.UI BUG THIS TEMPLATE ONLY INCLUDES CONTENT OF MODEL THAT PLACES ON PARENT TEMPLATE.-->
+<template name="itemmodal">
+
+  <!--INSIDE OF ITEM MODAL-->
+  <div class="ui card">
+    <div class="content">
+      {{#unless checked}}
+      <div class="ui {{#if dropped}}green{{else}}orange{{/if}} header cardHeader"><h3>{{#if dropped}}{{pass2}}{{else}}{{pass1}}{{/if}}</h3></div>
+      {{/unless}}
+      <div class="ui {{#if checked}}grey{{else}}{{#if dropped}}green{{else}}orange{{/if}}{{/if}} header cardHeader"><h4>{{text}}</h4></div>
+      <div class="ui {{#if checked}}grey{{else}}{{#if dropped}}green{{else}}orange{{/if}}{{/if}} header cardHeader5"><h5 style="font-weight:normal">
+        {{#if checked}}#THY001'den teslim alındı.
+        {{else}}
+          {{#if dropped}}#THY001'den teslim alınacak.
+            {{else}}#THY001'e teslim edilecek.
+          {{/if}}
+        {{/if}}</h5></div>
+    </div>
+
+    <div class="ui centered rounded medium image">
+      <div class="ui orange ribbon bottom attached label addressLabel">
+        <i class="inverted map marker alternate icon"></i>THY Genel Müdürlük Otoparkı, Bakırköy
+      </div>
+      <img class="rounded image" src="/images/idle.png">
+    </div>
+
+
+    {{#unless checked}}
+    <div class="content CopyButtonContent">
+      <button class="ui {{#if dropped}}green{{else}}orange{{/if}} basic button btn big-copy-btn" data-clipboard-text="Kargoluk #THY001'e {{#if dropped}}yapılan{{else}}yapılacak{{/if}} teslimat için kullanılacak şifre: {{#if dropped}}{{pass2}}{{else}}{{pass1}}{{/if}} | Adres: THY Genel Müdürlük Otoparkı, Bakırköy İstanbul"><strong>bilgileri kopyala</strong></button>
+    </div>
+    {{/unless}}
+    <div class="extra content">
+      {{#if checked}}
+        <p style="color:grey; font-size:small">{{creatingDate}}'de şifre üretildi.</p>
+        <p style="color:grey; font-size:small">{{droppingDate}}'de teslim edildi.</p>
+        <p style="color:grey; font-size:small">{{checkingDate}}'de teslim alındı.</p>
+      {{else}}
+        {{#if dropped}}
+          <p style="color:green; font-size:small">{{creatingDate}}'de şifre üretildi.</p>
+          <p style="color:green; font-size:small">{{droppingDate}}'de teslim edildi.</p>
+        {{else}}
+          <p style="color:orange; font-size:small">{{creatingDate}}'de şifre üretildi.</p>
+        {{/if}}
+      {{/if}}
+    </div>
+  </div>
+
+</template>

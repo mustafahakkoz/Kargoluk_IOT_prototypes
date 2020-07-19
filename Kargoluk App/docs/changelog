@@ -1,0 +1,213 @@
++++     meteor add reactive-dict
+	meteor remove insecure
+	meteor remove autopublish
+
++++	meteor npm install mosca --save
+	meteor npm install mqtt --save
+	meteor npm install --save bufferutil utf-8-validate
+	meteor npm install --save @babel/runtime  (olmazsa bu: meteor npm install --save-exact @babel/runtime@7.0.0-beta.55)   
+
++++	meteor add email
+
++++	meteor add session (set, get, equals kullanıldı)
+
++++	meteor npm add Buffer
+
++++	mongo url mongodb://127.0.0.1:3001/meteor olarak degisti
+
++++	client/lib/init.js e // global.Buffer = global.Buffer || require("buffer").Buffer; // 		satırı eklendi
+
++++	dogru ip adresi yazıldı mı 192.168.1.1den kontrol et.(dogru)
+
++++	https://forums.meteor.com/t/error-while-using-mqtt-js-in-meteor/31370/11 fonksiyonları 		servera yazıp cagırmak deneniyor.(yeni hata verdi) subscription metodu topic: command şeklinde cagrıldı ve düzeldi.
+
+---	GET http://localhost:3000/sockjs/info?cb=j3wwkimgsa net::ERR_CONNECTION_REFUSED (kendi kendine düzeldi)
+
+
+---	:3000 dene (yanlıs)
+
+---	init.js nereye import edilecek (import '../client/lib/init.js'; server.jse eklendi)(yanlıs)
+
++++	arduino ışıgı yanıyor. ama tersi terminale mesaj yazılmıyor. bufferı düzelt.
+
++++	serverside broker.on published metoduna toString() eklendi ve düzeldi.
+
++++	UbuKargolukv2 oluşturuldu. paketler yüklendi. Kargolukv1 kodları kopyalandı.npmdeneme kodları kopyalandı.
+
++++	arduinoda sentez.ino ve pubsubexden.ino dosyaları kabaca birleştirildi. akışa uygun düzenleniyor
+
++++	server side da mqtt.connect('mqtt://localhost:1883/meteor' yazarak meteor call yapmadan calıstırıldı.
+
++++	arduuino client.subscribe olmuyo(https://github.com/knolleary/pubsubclient/issues/230) burda bahsedilen problem. pubsubclient tan farklı sürücüler denenecek
+
++++	subscribe edilen payload meteorda nasıl kullanılacak? çözüldü
+
++++	meteor.bindenvironement eklendi server side daki kodlara
+
+---	perak denendi ama eşzamanlı çalışmadı
+
+???	asyncwrap ve fiber dene.gerek kalmadı
+
+???	kargolukpass templateindeki is checked ve isdropped yeniden yaz. database updateleri ordan yap. serverda sadece perak olsun.gerek kalmadı
+
++++	düzeltildi. server sidedaki mosca subscribe oldugu topice : ekliyormuş
+
+---	mup deploy etmiyor. mup sitesindeki dockerler denendi çalışmadı.
+
+---	mupx denendi 3 yıllık eskiymiş çalışmadı.
+
+---	https://www.vultr.com/docs/how-to-setup-a-meteor-js-web-application-with-mongodb-and-apache-on-ubuntu-16-04-lts denendi. apache kurulumu hatalar verdi
+
++++	https://www.phusionpassenger.com/library/walkthroughs/deploy/meteor/ownserver/nginx/oss/xenial/deploy_app.html denendi. bundledan sonraki kısımlar yerine https://medium.com/startup-founder-panel/deploying-a-meteor-app-with-nginx-from-scratch-1332b32e99a5 yapıldı.
+
++++	node main.js dene.çalıştı başka terminalde mongod --port 3001 yapınca
+
+???	mupta mongo urlyi 127.0.0.1:3001/meteor yap. server/main.jsteki gibi. veya mongo url nasıl bulunur onu araştır.
+
++++	sendpickuppusstan önceki mqqt.connect kodlarını commend out yaptım.
+
++++	yeniden bundle yapıp yolla. eksik npm paketlerini düzeltmek icin.düzeltildi.
+
+---	https://www.vultr.com/docs/how-to-setup-a-meteor-js-web-application-with-mongodb-and-apache-on-ubuntu-16-04-lts burdaki systemd denendi mongod --port 3001 çalıştırmak için fakat olmadı.
+
++++	https://github.com/foreverjs/forever/issues/148 burdaki gibi script yazıldı. gerekli exportlar forever main.js cart curt eklendi. mongoyu çalıştırmadan önce no user local set hatasını düzeltmek için export LC_ALL=C eklendi surda acıklandıgı gibi: https://www.digitalocean.com/community/questions/how-do-i-access-mongo-shell. 
+	scripti çalıştırmak için:
+	$ cd ~
+	$ forever start -c /bin/bash mongostart 
+
+???	scripte nginx kodlarını da eklemek gerekir mi? burdaki https://medium.com/startup-founder-panel/deploying-a-meteor-app-with-nginx-from-scratch-1332b32e99a5
+
++++	arduinoyu servera bağla. sites-enabled taki ve mongostart taki port 8080den 3000e cevrildi.
+https://www.cyberciti.biz/faq/how-to-open-firewall-port-on-ubuntu-linux-12-04-14-04-lts/ burdaki gibi firewallda 1883e port acıldı. (sudo ufw allow 1883/tcp)
+
++++	sudo mongod --port 3001 yazdıgımda adrr already in use hatası verdi. https://stackoverflow.com/questions/6478113/unable-to-start-mongodb-local-server taki çözüm denendi. 
+ps wuax | grep mongo ve kill <pid> yaparak düzeltildi. 
+
++++	Error: listen EADDRINUSE :::3000.
+Run lsof -i :3000 to see what process is using port 3000 and kill it before running npm start.
+
+???	aynı sorun oldugunda sudo killall mongod dene. çalışırsa mongostart scriptine ekle.(çalışmadı)
+sudo pkill -f mongod denendi. (çalışmadı)
+
++++	arduino ekran çevrildi 6 saniye switch mode özelligi eklendi
+
++++	ekran kalibrasyonu yap
+
++++	şifreyi 6 haneye cevir
+
+???	restart atmadan akışı loop edebilsin(yeni şifre geldiginde)
+
++++	clear yerine tek tek silsin harfleri
+
++++	meteor add accounts-ui accounts-password (Exception in template helper: TypeError: Cannot read property 'form' of undefined hatası için meteor remove accounts-ui yaz)
+	
++++	https://www.meteor.com/tutorials/blaze/adding-user-accounts burdaki gibi account fonksiyonları eklendi. 
+	{{> loginButtons}} ile login ekranı eklendi.(atFrom yapıldı bunun yerine)
+	{{#if currentUser}}...{{/if}} ile şifre üretme özelliği genele kapandı.
+	kargolukpasses datasına {owner: Meteor.userId(),} attribute eklendi.
+	
++++	http://meteortips.com/first-meteor-tutorial/accounts/ burdaki gibi body.jsteki body templateindeki helperda şifreleri
+	döndüren mongoDB ifadesine {owner: currentUserId} eklendi.
+
++++	meteor npm install --save bcrypt 
+	şu uyarı için:
+Note: you are using a pure-JavaScript implementation of bcrypt. While this implementation will work correctly, it is known to be approximately three times slower than the native implementation.In order to use the native implementation instead, run ....
+	
++++	meteor add useraccounts:semantic-ui eklendi.
+https://github.com/meteor-useraccounts/core/blob/master/Guide.md burdaki gibi
+
++++	meteor remove standard-minifier-css
+
+	meteor add semantic:ui juliancwirko:postcss less jquery
+
+	Add the following to package.json:
+	{
+	  "devDependencies": {
+	    "autoprefixer": "^6.3.1"
+	  },
+	  "postcss": {
+	    "plugins": {
+	      "autoprefixer": {"browsers": ["last 2 versions"]}
+	    }
+	  }
+	}
+
+	meteor npm install
+
+(ve diğer kurulum adımları semantic-ui klasörü oluşturma vs. burdaki gibi: https://atmospherejs.com/semantic/ui)
+
++++	meteor npm install --save-dev postcss@6.0.22 postcss-load-config@1.2.0 
+peer NPM dependencies for postcss hatası için yüklendi. (https://atmospherejs.com/juliancwirko/postcss)
+
++++	semantic-ui modal html(template html) ve js kodları(template helper içine) eklendi. birden fazla modal açılması sorununu gidermek için, modallara kargolukpasses idsi atandı ve o id ile js kodundan çagrıldı.(burdaki gibi https://stackoverflow.com/questions/5891840/how-to-use-javascript-variables-in-jquery-selectors)
+
++++	shadow efekti için burdaki css kodu eklendi: (https://www.w3schools.com/css/css3_shadows.asp)
+
++++	meteor npm install clipboard --save 
+main htmle <head> içine <script src="//cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script> eklendi. 
+kargolukpass.js'te onRedered içine new ClipboardJS('.btn'); eklendi. 
+.btn classlı butona data-clipboard-text attribute ü eklendi.(burdaki gibi: https://clipboardjs.com/#example-text)
+
++++	fixed button için body.js onRedered içine containerın genişliğini hesaplayan js kodu, css içine de 50% den hizalanan .fixed-button eklendi. 
+(burdaki gibi: https://stackoverflow.com/questions/49068865/position-responsive-fixed-button-to-div-container-css) (righttan margin bırakacak şekilde değiştirildi + @media ya alternatif right margin eklendi) 
+
++++	modal içindeki butondan colleciton submit etme çalışmadı. bu yöntemi dene (https://groups.google.com/forum/#!msg/meteor-talk/0Upkyo9F54k/McRPRy49IrgJ).çalıştı, modalın içeriğini ayrı bir template e taşıyarak.
+
++++	şu şekilde click insert fonksiyonu çalıştırıldı (https://stackoverflow.com/questions/38284650/how-to-get-value-the-input-type-without-value-attribute)
+
++++	meteor npm i --save moment
+kargolukpass.js e import moment from 'moment' eklendi. sonra helper fonskiyonlarıyla formatlı tarih yapıldı. (https://stackoverflow.com/questions/31890483/how-can-i-get-the-todays-date-and-time-in-meteor)
+
++++	session ile newpass modalından sonra item molunun acılması isin newpass değişkeni kullanıldı. lastModalId ile de acılacak modalın degiskeni atandı. newpass a body.js onrendered te default olarak false atandı. kargolukpass.js onrendered ta da item modalını acan kod yazıldı.
+
++++	kargolukpass.js click eventinde minik copy buttonları için exclude event kodu eklendi. (https://stackoverflow.com/questions/10646047/jquery-click-exclude-specific-elements-inside-div)
+
++++	dummyitem templateti oluşturuldu.
+
+???	dummyitem için shake efekti (https://api.jqueryui.com/shake-effect/)
+
++++	dummyitem için popup eklendi (https://semantic-ui.com/modules/popup.html#/examples).
+
++++	kopyalandı mesajı popup şeklinde.
+
+???	hover ile degil de clickle calısan, bir süre sonra kaybolan popup yap.
+
++++ 	green button içib copy butonları içeriklerini ayarla
+
++++	<meta name="viewport" content="width=device-width, initial-scale=1.0"> head tagına eklendi.mobilde tam ölcekte görünmesi icin
+
++++	useraccounts-core türkçeleştirildi imports/startup/accounts-config.js dosyası ile burdaki gibi (https://github.com/meteor-useraccounts/core/blob/master/Guide.md). 
+	
++++	"Bu eposta zaten kullanılıyor." uyarısı içinse /.meteor/local/build/programs/web.browser/packages ve web.browser.legacy/packages taki useraccounts_core.js teki "Email already exists." uyarıları editlendi.(olmadı)
+
+login forbidden mesajları düzeltildi. email already exist sorunu gibi çözüldü. web.browser yolları dışında /.meteor/local/build/programs/server/packages deki useraccounts_core.js de editlendi.(olmadı)
+
+accounts-config.js e T9n.setLanguage("tr"); kodu eklendi burdaki gibi: (https://github.com/meteor-useraccounts/core/issues/181)   (oldu)
+
+???	item contenti sağa daya.
+
+---	fixedbutton ayarları (main.css ve body.js) px den em e cevrildi.
+
++++	fixedbutton ayarları sağdan ayarlandı ve css'ee @media ayarı eklendi.
+
++++	favicon için head tagı arasına kod eklendi. burdaki gibi: (https://www.hostinger.web.tr/rehberler/siteye-favicon-ekleme)
+
++++	tamamlananları gizle ayarla. 
+
++++	deploy hataları vardı. semanticin js ve css dosyalarını meteor bundle göremiyordu, web.browser.legacy ye atıyodu. düzeltmek için 1.6.1.3 te yeni proje açıldı (meteor create --release 1.6.1.3 UbuKargolukv3). ardından 1.6.1.4 e patch edildi(meteor update --patch) ardından (meteor --allow-incompatible-update). sorun devam ediyordu, serverdaki node versionu nvm kullanarak 8.12.0 dan 8.11.4 e düşürüldü yani bundle/README deki versiyona (burdaki gibi: https://stackoverflow.com/questions/47008159/how-to-downgrade-node-version).
+
++++	sudo service mongod status "active" degildi. sudo chown -R mongodb:mongodb /data/db yapılarak permission sorunu düzeltildi. (sudo chown -R rajaz /data/db yapılırsa mongod --port 3001 çalısıyor service mongod bozuluyor, önceki yapılırsa bu bozuluyor ona dikkat.)
+
++++	/etc/mongod.conf taki port 3001 olarak editlendi. böylece service mongod 3001de başlıyor. (dbpath=/data/db için de editle)
+
+???	js ve css hatasının çözümü chmod -R 775 /var/www/kargolukv3 olabilir. npm installdan önce mi sonra mı?
+
++++	tüm groundlar ve 3v ler aynı pine baglandı. ekran pırpırını engellemk için
+
+???	1.7.18 notlar
++ Kargoluk birden fazla 1. aşama şifre alabilir
++ Eğer 2. aşamaya geçmiş teslimat var ise (ki bu kargocu teslimat yapmış demek oluyor) 1. aşama şifre geldiğinde "yer yok" demesi lazım
++ Eğer 2. aşamaya geçmiş teslimat var ve gelen şifre bununla eşleşirse tesimatı yaptırıp teslimat bilgisini silmesi lazım
++ Web uygulaması, arayüz akışında planlanana fonksiyonel olarak uyacak hale gelecek
+
+

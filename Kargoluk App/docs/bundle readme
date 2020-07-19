@@ -1,0 +1,53 @@
+his is a Meteor application bundle. It has only one external dependency:
+Node.js v8.11.1. To run the application:
+
+  $ (cd programs/server && npm install)
+   export MONGO_URL='mongodb://root:6qS-ByjLy5HTg.[6@45.77.114.70:27017/Kargolukv3'
+
+export MONGO_URL='mongodb://localhost:3001/meteor'
+export ROOT_URL='http://kargoluk.com'
+export PORT=8080
+export MAIL_URL='smtps://selam%40kargoluk.com:kargoluk2017*@smtp.yandex.com:465/'
+  $ node main.js
+
+Use the PORT environment variable to set the port where the
+application will listen. The default is 80, but that will require
+root on most systems.
+
+Find out more about Meteor at meteor.com.
+
+
+////////////////////////////////
+	DEPLOYMENT STEPS:
+////////////////////////////////
+$ cd /media/rajaz/ortak/metden/UbuKargolukv3
+$ meteor build --server-only ../new_package && mv ../new_package/*.tar.gz package.tar.gz
+$ scp package.tar.gz rajaz@45.77.114.70:
+$ ssh rajaz@45.77.114.70
+$ sudo rm -rf /var/www/kargolukv3
+$ sudo mkdir -p /var/www/kargolukv3
+$ cd /var/www/kargolukv3
+$ sudo chown -R rajaz: .
+$ chmod -R 775 .
+$ tar xzf ~/package.tar.gz
+$ ps wuax | grep mongod
+$ sudo kill <pid>
+$ cd /var/www/kargolukv3/bundle/programs/server
+$ npm install --production
+$ sudo service mongod start
+($ export LC_ALL=C)
+($ mongod --port 3001)
+$ ps wuax | grep node
+$ sudo kill <pid>
+$ export MONGO_URL='mongodb://localhost:3001/meteor'
+export ROOT_URL='http://kargoluk.com'
+export PORT=3000
+export MAIL_URL='smtps://selam%40kargoluk.com:kargoluk2017*@smtp.yandex.com:465'
+node /var/www/kargolukv3/bundle/main.js
+$ sudo nginx -t 
+$ sudo service nginx restart
+$ cd ~
+$ forever stopall
+$ forever start -c /bin/bash mongostart
+
+

@@ -1,0 +1,60 @@
+<body>
+    <div class="container">
+
+<!--MAIN HEADER-->
+        <img class="ui image main-header" src="/images/smargo_logo_4.png">
+
+<!--PENDING COUNTER-->
+        {{#if currentUser}}
+          <h4 class="ui grey right aligned header pending-count">
+            Bekleyen: {{incompleteCount}}
+          </h4>
+        {{/if}}
+
+<!--HIDE COMPLETED CHECKBOX-->
+        {{#if currentUser}}
+        <div class="ui checkbox hide-completed">
+          <input type="checkbox">
+          <label style="color: grey">
+            Tamamlananları gizle
+          </label>
+        </div>
+        {{/if}}
+
+<!--LOGOUT BUTTON -->
+      {{#if currentUser}}
+        <span style="float:left">{{> atNavButton}}</span>
+      {{/if}}
+<!--ACCOUNTS FORM-->
+        <p>{{> atForm}}</p>
+
+<!--SELECTION LIST-->
+      {{#if currentUser}}
+        <br>
+        <div class="ui very relaxed selection list">
+          {{#if isThereAny}}
+            {{#each kargolukpasses}}
+                {{> kargolukpass}}
+                <br>
+            {{/each}}
+          {{else}}
+              {{> dummyitem}}
+          {{/if}}
+        </div>
+      {{/if}}
+
+    </div>
+
+<!--FIXED BUTTON-->
+    {{#if currentUser}}
+    <button class="ui circular massive icon button fixed-button">
+      <i class="orange icon plus"></i>
+    </button>
+    {{/if}}
+
+<!--NEW PASS MODAL-->
+      <div class="ui mini modal new-pass-modal">
+        {{> newpassmodal}}
+      </div>
+
+  </body>

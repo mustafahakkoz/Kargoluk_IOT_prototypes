@@ -1,0 +1,12 @@
+
+#!/bin/bash
+export LC_ALL=C
+mongod --port 3001
+export MONGO_URL='mongodb://localhost:3001/meteor'
+export ROOT_URL='http://kargoluk.com'
+export PORT=3000
+export MAIL_URL='smtps://selam%40kargoluk.com:kargoluk2017*@smtp.yandex.com:465'
+node /var/www/kargolukv3/bundle/main.js
+
+
+#forever start /var/www/kargolukv3/bundle/main.js eski hali

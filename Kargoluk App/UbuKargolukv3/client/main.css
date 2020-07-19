@@ -1,0 +1,236 @@
+/* CSS declarations go here */
+body {
+
+    background-image: linear-gradient(to bottom, #ffc966, #99783d 100%);
+    background-attachment: fixed;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    padding: 0;
+    margin: 0;
+
+  }
+
+/* list container */
+  .container {
+    max-width: 530px;
+    margin: 0 auto;
+    min-height: 100%;
+    background: orange;
+    color: white;
+    padding: 3em;
+
+  }
+
+
+  ui.selection.list .list > .item,
+  .ui.selection.list > .item {
+    background: white;
+    padding: 1em 1em;
+    box-shadow: 0 0.25em 1.25em 0 rgba(0, 0, 0, 0.2), 0 0.36em 2.5em 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .ui.selection.list.list > .item:hover,
+  .ui.selection.list > .item:hover {
+    background: lightgrey;
+  }
+
+  /* .ui.button:active {
+    background: white;
+    color: white;
+  } */
+
+  /* transition: 0.1s color ease, 0.1s padding-left ease, 0.1s background-color ease; */
+
+
+  .ui.list .list > .item .header,
+  .ui.list > .item .header {
+    display: grid;
+    font-family: "Verdana", sans-serif, serif;
+    font-weight: 400;
+    text-transform: none;
+  }
+
+  .ui.header {
+    color:inherit;
+  }
+
+  .ui.list > .item > .image {
+    vertical-align: middle;
+  }
+
+
+/*modal card daki copy buttonunu içeren content  */
+  .ui.card > .content.CopyButtonContent {
+    text-align: center;
+    border-top: none;
+  }
+
+  .ui.mini.modal{
+    width: fit-content;
+  }
+
+
+  .ui.cardHeader{
+    margin: 0.5em 0.5em 0.2em 0.5em;
+  }
+
+  .ui.cardHeader5{
+    margin-left: 0.5em;
+    margin-top: 0em;
+    font-weight: 400;
+
+  }
+
+  .ui.image > .ribbon.label.addressLabel {
+    bottom: 0em;
+    top: unset;
+  }
+
+  .ui.card > .image {
+    background: transparent;
+  }
+
+/*bottom margin of image on card */
+  .ui.bottom.attached.label:first-child ~ :last-child:not(.attached) {
+    margin-top: 0em;
+    margin-bottom: 0.5em !important;
+  }
+
+/*fixed button  */
+  .ui.button.fixed-button{
+    position: fixed;
+    bottom: 2em;
+    right: calc(50% - 220px);
+    z-index: 99;
+    box-shadow: 0 0.25em 1.25em 0 rgba(0, 0, 0, 0.2), 0 0.36em 2.5em 0 rgba(0, 0, 0, 0.19);
+    background: white;
+    transition: 0.1s color ease, 0.1s padding-left ease, 0.1s background-color ease;
+   }
+
+   .ui.button:hover{
+     background: lightgrey;
+    }
+
+/*content of new pass button on new pass modal  */
+    .ui.card > .content.compose-button-content {
+      text-align: center;
+      border-top: none;
+    }
+
+/* input name on new pass modal */
+    .ui.form.new-kargolukpass input {
+      margin-left: 0.5em;
+      font-size: 1.15em;
+    }
+
+/*checkbox on body */
+    .ui.checkbox.hide-completed {
+      display: block;
+      float: right;
+      margin: 0em 0.5em 1em 0em;
+    }
+
+/* pending count */
+    .ui.header.pending-count{
+      display: block;
+      margin: 1em 0.5em 0.5em 0em;
+    }
+
+/*login and register buttons*/
+    #at-btn {
+      background-color: orange;
+    }
+
+/* sign out button */
+    #at-nav-button {
+      display: contents;
+    }
+
+/* main header */
+    .ui.main-header{
+      max-width: 300px;
+      margin: auto;
+    }
+
+
+
+  /*.visibility.example .overlay {
+  background-color: #FFFFFF;
+  padding: 5em;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  transition: all 0.5s ease;
+  background: transparent;
+  }
+
+  .visibility.example .fixed.overlay {
+  position: fixed;
+  padding: 1em;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+}*/
+
+
+
+
+
+  /* form {
+    margin-top: 10px;
+    margin-bottom: -10px;
+    position: relative;
+  }
+
+  .new-kargolukpass input {
+    box-sizing: border-box;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    width: 100%;
+    padding-right: 80px;
+    font-size: 1em;
+  }
+
+  .new-kargolukpass input:focus{
+    outline: 0;
+  } */
+
+
+
+  .delete {
+    float: right;
+    font-weight: bold;
+    background: none;
+    font-size: 1em;
+    border: none;
+    position: relative;
+  }
+
+
+
+  li.checked {
+    color: #888;
+  }
+
+  li.checked .text {
+    text-decoration: line-through;
+  }
+
+
+
+
+
+  @media (max-width: 530px) {
+
+    .ui.button.fixed-button{
+      right: 14px;
+      bottom: 1em;
+     }
+
+/*
+    .new-kargolukpass input {
+      padding-bottom: 5px;
+    } */
+  }

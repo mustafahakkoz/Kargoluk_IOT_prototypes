@@ -1,0 +1,40 @@
+
+<template name="kargolukpass">
+
+<!--LIST ITEM-->
+      <div class="item">
+        <div class="ui centered avatar image">
+          <i class="circular inverted {{#if checked}}grey calendar check{{else}}{{#if dropped}}green box{{else}}orange truck{{/if}}{{/if}} icon"></i>
+        </div>
+        <div class="content">
+          <h4 class="ui {{#if checked}}grey{{else}}{{#if dropped}}green{{else}}orange{{/if}}{{/if}} left floated header"><strong>{{text}}</strong>
+            <h5 class="ui {{#if checked}}grey{{else}}{{#if dropped}}green{{else}}orange{{/if}}{{/if}} left floated header">
+                {{#if checked}}#THY001'den teslim alındı.
+                {{else}}
+                  {{#if dropped}}#THY001'den teslim alınacak.
+                    {{else}}#THY001'e teslim edilecek.
+                  {{/if}}
+                {{/if}}
+            </h5>
+          </h4>
+          {{#unless checked}}
+          <h4 class="ui {{#if dropped}}green{{else}}orange{{/if}} right floated header"><strong>{{#if dropped}}{{pass2}}{{else}}{{pass1}}{{/if}}</strong>
+            <div class="ui {{#if dropped}}green{{else}}orange{{/if}} right floated sub header">
+              <button class="ui tiny basic compact icon button btn" data-clipboard-text="Kargoluk #THY001'e {{#if dropped}}yapılan{{else}}yapılacak{{/if}} teslimat için kullanılacak şifre: {{#if dropped}}{{pass2}}{{else}}{{pass1}}{{/if}} | Adres: THY Genel Müdürlük Otoparkı, Bakırköy İstanbul">
+                <i class="{{#if dropped}}green{{else}}orange{{/if}} clone outline icon mini-copy-btn" id="miniCopyBtn"></i>
+              </button>
+            </div>
+          </h4>
+          {{/unless}}
+        </div>
+      </div>
+
+<!--ITEM MODAL-->
+      <div class="ui mini modal" id="modal{{modalId}}">
+        {{> itemmodal}}
+      </div>
+
+<!-- POPUP FOR MINI COPY BUTTON -->
+      <div class="ui popup" id="copyPopup">bilgileri kopyala</div>
+
+  </template>
