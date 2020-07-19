@@ -1,6 +1,6 @@
 ## Kargoluk
 
-The project consists of 2 parts: IOT and web app connected through MQTT protocol.
+The project consists of 2 parts: An IOT box and a web app connected through MQTT protocol.
 
 
 ## [Kargoluk Box](https://github.com/mustafahakkoz/Kargoluk_IOT_prototypes/tree/master/Kargoluk%20Box)  
