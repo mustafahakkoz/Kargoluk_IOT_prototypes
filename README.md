@@ -9,6 +9,6 @@ The project consists of 2 parts: An IOT box and a web app connected through MQTT
 <img src="https://github.com/mustafahakkoz/Kargoluk_IOT_prototypes/blob/master/Kargoluk%20Box/photos/lolin/IMG_20181019_214926_747.jpg" width="324">
 
 ## [2. Kargoluk App](https://github.com/mustafahakkoz/Kargoluk_IOT_prototypes/tree/master/Kargoluk%20App)  
-**Meteor.js Web Application:** An application with simple GUI to generate passwords for deliveryman and customer.
+**Meteor.js Web Application:** An application with simple GUI to generate passwords.
 
 <img src="https://github.com/mustafahakkoz/Kargoluk_IOT_prototypes/blob/master/Kargoluk%20App/imgs/IMG_20200720_005414_226.jpg" height="480">
