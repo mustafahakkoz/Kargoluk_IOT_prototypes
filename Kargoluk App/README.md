@@ -7,7 +7,7 @@
 GUI with **semantic.UI**: https://semantic-ui.com/  
 <img src="https://github.com/mustafahakkoz/Kargoluk_IOT_prototypes/blob/master/Kargoluk%20App/imgs/IMG_20200720_005414_226.jpg" height="320">
 
-Arduino and Meteor client are connected to **Mosca** Broker on Server side: https://www.npmjs.com/package/mosca  
+Arduino and Meteor clients are connected to **Mosca** Broker on Server side: https://www.npmjs.com/package/mosca  
 <img src="https://github.com/mustafahakkoz/Kargoluk_IOT_prototypes/blob/master/Kargoluk%20App/imgs/20180313_183540.jpg" width="480">
 
 
