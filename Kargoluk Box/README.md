@@ -3,8 +3,6 @@
 --**Codes for Arduino:** [./sentezv3.2/](https://github.com/mustafahakkoz/Kargoluk_IOT_prototypes/tree/master/Kargoluk%20Box/sentezv3.2)  
 --**Libraries for Arduino:** [./arduino libraries/](https://github.com/mustafahakkoz/Kargoluk_IOT_prototypes/tree/master/Kargoluk%20Box/arduino%20libraries)  
 
-
-
 The components for Kargoluk Box are:
 
 ### LoLin  
